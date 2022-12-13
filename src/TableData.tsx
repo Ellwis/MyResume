@@ -12,7 +12,6 @@ import { Component } from "react";
 import { datas } from './datas';
 import { useContext } from "react";
 
-export function DataTable() {
   function InterfaceData(
     first_name: string,
     last_name: string,
@@ -33,22 +32,13 @@ export function DataTable() {
     };
   }
 
-//   const datas = [
-//     {
-//       id: 2,
-//       first_name: "Abigail",
-//       last_name: "Langcaster",
-//       email: "alangcaster1@hud.gov",
-//       gender: "Female",
-//       ip_address: "186.232.78.176",
-//     },
-//   ];
+  export function DataTable() {
 
   const [search, setSearch] = React.useState("");
   return (
     <Box>
       <TableContainer
-        sx={{ borderRadius: 5, bgcolor: "black" }}
+        sx={{ borderRadius: 5, bgcolor: "black" , overflowX:{xs:'auto'} }}
         component={Paper}
       >
         <Table
@@ -76,25 +66,19 @@ export function DataTable() {
               <TableCell sx={{ color: "white",overflow:'hidden' }} align="justify">
                 Ip Address
               </TableCell>
-              <TableRow>
-                
-              </TableRow>
-              <TableRow >
-                
-              </TableRow>
-              <TableRow>
-                <TableCell sx={{ color: "white" }} align="justify">
-                    Etherium Address
+                <TableRow>
+                  <TableCell sx={{ color: "white" }} align="justify">
+                      Etherium Address
+                  </TableCell>
+                  <TableCell sx={{ color: "white" }} align="justify">
+                      <Input
+                      placeholder="search"
+                      value={search}
+                      onChange={(e) => setSearch(e?.target?.value??'')}
+                      sx={{ borderBottom: "1px solid white", color: "white" }}
+                      />
                 </TableCell>
-                <TableCell sx={{ color: "white" }} align="justify">
-                    <Input
-                    placeholder="search"
-                    value={search}
-                    onChange={(e) => setSearch(e.target.value)}
-                    sx={{ borderBottom: "1px solid white", color: "white" }}
-                    />
-               </TableCell>
-              </TableRow>
+                </TableRow>
             </TableRow>
           </TableHead>
           <TableBody>
